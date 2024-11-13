@@ -1,0 +1,10 @@
+      - name: Health Check
+        run: |
+          sleep 5
+          if curl -s --head http://$SERVER_HOST | grep "200 OK" > /dev/null; then
+            echo "Application deployed successfully!"
+          else
+            echo "Application deployment failed."
+            exit 1
+          fi
+
